@@ -43,8 +43,8 @@ class eu_civihost_aimonsms extends CRM_SMS_Provider
   /**
    * Constructor
    *
-   * Create and auth a Twilio session.
-   * This is not needed for Twilio
+   * Create a XmlRpc session.
+   * The auth is not needed for Aimon
    *
    * @return void
    */
@@ -87,8 +87,8 @@ class eu_civihost_aimonsms extends CRM_SMS_Provider
   }
 
   /**
-   * Authenticate to the Twilio Server.
-   * Not needed in Twilio
+   * Authenticate to the server provider.
+   * Not needed in Aimon
    * @return boolean TRUE
    * @access public
    * @since 1.1

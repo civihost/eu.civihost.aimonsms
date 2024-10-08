@@ -1,4 +1,4 @@
-Package: org.civicrm.sms.twilio
+Package: eu.civihost.aimonsms
 Copyright (C) 2004-2023, CiviCRM LLC <info@civicrm.org>
 Licensed under the GNU Affero Public License 3.0 (below).
 
