@@ -1,0 +1,8 @@
+{
+    "name": "civicrm/aimonsms",
+    "type": "civicrm-extension",
+    "description": "Aimon integration to deliver short message service (SMS) messages",
+    "require": {
+        "phpxmlrpc/phpxmlrpc": "^4.11"
+    }
+}
