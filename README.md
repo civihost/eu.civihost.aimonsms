@@ -1,5 +1,21 @@
 # Aimon SMS Provider
 [Aimon](https://aimon.it) is an italian SMS provider. This CiviCRM extension integrates Aimon SMS provider allowing you to use send SMS with CiviCRM.
+
+
+## Registering for a Aimon account¶
+
+You can register a free trial account, which will allow you to test the service.
+
+To sign up, visit:
+
+[https://app.aimon.it/register](https://app.aimon.it/register)
+
+This is the invitation code to be used when registering
+
+**CIVIHOST**
+
+with this code you will get 100 free SMS.
+
 ## Setting up your new SMS Provider in CiviCRM¶
 Aimon and CiviCRM integration allows delivering single and mass short message service (SMS) messages through its Aimon Gateway to mobile phone users.
 
@@ -11,6 +27,8 @@ Aimon and CiviCRM integration allows delivering single and mass short message se
 ## Installation
 
 Install as a regular CiviCRM extension.
+
+If you are installing from the git repository, you must run 'composer install'.
 
 ## Configuration
 1. After installing the Aimon SMS extension in CiviCRM, go to: **Administer > System Settings > SMS Providers**. Click **Add New Provider**.
