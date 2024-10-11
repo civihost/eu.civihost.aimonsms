@@ -52,6 +52,9 @@ api_id=12345
 From=MyCompanyName
 ```
 
+The "From" parameter is not required. It may be numeric or alphanumeric. 
+In the case of a numeric "From", the value must consist of the phone number including the ‘+’ and country code, for example: +393351234567. In the case of an alphanumeric "From", the value must be alphanumeric and must be a maximum of 11 characters. However, the use of special characters in the "From" is not recommended as not all GSM terminals are able to interpret them correctly.
+
 ## Known Issues
 
 https://github.com/civihost/eu.civihost.aimonsms/issues
