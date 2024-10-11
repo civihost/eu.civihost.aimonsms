@@ -113,22 +113,33 @@ class eu_civihost_aimonsms extends CRM_SMS_Provider
       'authpasswd' => $this->_providerInfo['password'],
       'sms' => [
         [
-          'sender' =>  base64_encode($this->_providerInfo['api_params']['From']),
-          'body' =>  base64_encode(mb_convert_encoding($message, 'ISO-8859-1', 'UTF-8')),
+          'body' => base64_encode(mb_convert_encoding($message, 'ISO-8859-1', 'UTF-8')),
           'destination' => self::normalize($header['To']),
           'id_api' => (int) $this->_providerInfo['api_params']['api_id'],
           'report_type' => 'F',
         ]
       ]
     ];
+    if (isset($this->_providerInfo['api_params']['From'])) {
+      $params['sms'][0]['sender'] = base64_encode($this->_providerInfo['api_params']['From']);
+    }
 
     $msg = new XmlRpcRequest('send_sms', array((new XmlRpcEncoder())->encode($params)));
 
     $r = $this->_xmlRcpClient->send($msg);
     if (!$r->faultCode()) {
-      $sid = (new XmlRpcEncoder())->decode($r->value())[0]['id_sms'];
-      $this->createActivity($sid, $message, $header, $jobID, $userID);
-      return $sid;
+      $result = (new XmlRpcEncoder())->decode($r->value())[0];
+      if (isset($result['id_sms'])) {
+        $sid = $result['id_sms'];
+        $this->createActivity($sid, $message, $header, $jobID, $userID);
+        return $sid;
+      } else {
+        return PEAR::raiseError(
+          $result['error_message'],
+          $result['error_code'],
+          PEAR_ERROR_RETURN
+        );
+      }
     } else {
         return PEAR::raiseError(
           $r->faultString(),
